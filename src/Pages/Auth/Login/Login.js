@@ -1,7 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../../../firebase.init';
 
 const Login = () => {
+    const navigate = useNavigate()
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        hookError,
+      ] = useSignInWithEmailAndPassword(auth);
+
+
+      useEffect(() => {
+        if (user) {
+            navigate('/')
+        }
+
+        if (hookError) {
+            console.log(hookError.message)
+        }
+    }, [user, hookError])
+
     const [userInfo,setUserInfo] = useState({
         name:'',email:'',password:'',confirmPassword:''
     })
@@ -36,9 +59,9 @@ const Login = () => {
 
     const handleForm = (event) =>{
         event.preventDefault()
-        const {password,confirmPassword,email} = userInfo
+        const {password,email} = userInfo
         
-
+        signInWithEmailAndPassword(email,password)
         
     }
     
