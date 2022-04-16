@@ -5,6 +5,7 @@ import Header from './Pages/Shared/Header/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
 import { createContext, useState } from 'react';
+import Footer from './Pages/Shared/Footer/Footer';
 
 export const ServiceContext = createContext()
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
         </Routes>
+        <Footer></Footer>
       </ServiceContext.Provider>
     </div>
   );
