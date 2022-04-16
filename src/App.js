@@ -6,21 +6,25 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
 import { createContext, useState } from 'react';
 import Footer from './Pages/Shared/Footer/Footer';
+import Login from './Pages/Auth/Login/Login';
+import Register from './Pages/Auth/Register/Register';
 
 export const ServiceContext = createContext()
 
 function App() {
   const [services, setServices] = useState([])
   return (
-    <div className="App">
       <ServiceContext.Provider value={[services, setServices]}>
+      <div className="App">
         <Header></Header>
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
+          <Route path='/login' element={<Login></Login>}></Route>
+          <Route path='/register' element={<Register></Register>}></Route>
         </Routes>
         <Footer></Footer>
-      </ServiceContext.Provider>
     </div>
+      </ServiceContext.Provider>
   );
 }
 
