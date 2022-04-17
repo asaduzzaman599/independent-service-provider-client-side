@@ -6,6 +6,9 @@
     margin-top: 2px;
     text-align: left;
 }
+.form {
+    text-align: right;
+}
 
 @media screen and (max-width:688px) {
     .form-container{

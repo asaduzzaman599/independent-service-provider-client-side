@@ -24,7 +24,10 @@ const Header = () => {
         {
             user?
             <Button variant='link' onClick={()=>signOut(auth)}>Log out</Button>
-            :<NavLink className="nav-link" to="/login">Login</NavLink>
+            :<>
+            <NavLink className="nav-link" to="/login">Login</NavLink>
+            <NavLink className="nav-link" to="/register">Register</NavLink>
+            </>
         }
       
       

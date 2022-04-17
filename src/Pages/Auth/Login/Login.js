@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
 
 const Login = () => {
@@ -74,9 +74,9 @@ const Login = () => {
     }
 
     return (
-        <div className=''>
-            <Form onSubmit={handleForm} className='form-container mx-auto shadow-lg p-4 '>
-            <h3 className='my-4'>Login to Yor Account</h3>
+        <div className='form-container mx-auto  p-4 shadow-lg '>
+        <h3 className='my-4'>Login to Yor Account</h3>
+            <Form onSubmit={handleForm} className='  form'>
             
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -84,13 +84,13 @@ const Login = () => {
                     {error.emailError && <p className='text-danger'>{error.emailError}</p>}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control className='rounded-pill' type="password" placeholder="Password" onChange={handlePassword} required/>
+                <Form.Group className="mb-1 " controlId="formBasicPassword">
+                    <Form.Control className='rounded-pill ' type="password" placeholder="Password" onChange={handlePassword} required/>
                    
                 </Form.Group>
 
 
-                <Button className='' onClick={handleForgetPassword} variant='link'>Forget password?</Button>
+                <Button className='p-1 d-inline-block' onClick={handleForgetPassword} variant='link'>Forget password?</Button>
                 
 
 
@@ -98,6 +98,7 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+            <Link to='/register'>Don't have account?</Link>
         </div>
     );
 };

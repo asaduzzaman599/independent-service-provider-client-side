@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import {  useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
+    const navigate = useNavigate();
     const { id, name, description, price, img } = service;
     return (
         <Col>
@@ -16,7 +18,7 @@ const Service = ({ service }) => {
                     <Card.Text>
                         Price : ${price}
                     </Card.Text>
-                    <Button variant='primary'>Get This</Button>
+                    <Button variant='primary' onClick={()=>navigate(`/service/${id}`)}>Get This</Button>
                 </Card.Body>
             </Card>
         </Col>
