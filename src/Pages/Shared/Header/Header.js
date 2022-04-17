@@ -11,18 +11,18 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className='header' bg="light" variant="light">
       <Container>
-        <Navbar.Brand as={Link} to="/">Rio'S Capture</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className='text-secondary mb-2'><span className="fs-3 fw-bold" style={{ color: "#2fb694"}}> M</span>'s Capture</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          
-        <Nav className='order-lg-2 '>
+
+          <Nav className='order-lg-2 '>
             {
               user ?
                 <>
-                <p className='mt-3'>
-                  {user.displayName}
-                </p>
-                <button  className='link' onClick={() => signOut(auth)}>Log out</button>
+                  <p className='mt-3'>
+                    {user.displayName}
+                  </p>
+                  <button className='link ms-lg-3 d-inline-block' onClick={() => signOut(auth)}>Log out</button>
                 </>
                 : <>
                   <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className="nav-link" to="/login">LOGIN</NavLink>
