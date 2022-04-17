@@ -3,8 +3,12 @@
 }
 .or div{
     height: 2px;
-    background-color: rgb(202, 202, 202);
+    background-color: rgba(47, 182, 148, 0.311);
     margin-bottom: 10px;
+}
+.or p{
+    color:rgba(47, 182, 148, 0.729);
+    font-weight: 600;
 }
 
 .socail button{

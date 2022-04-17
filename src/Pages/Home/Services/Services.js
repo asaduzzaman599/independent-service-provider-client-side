@@ -1,13 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import { ServiceContext } from '../../../App';
 import Service from '../Service/Service';
 
 const Services = () => {
-    const [services,setServices] = useContext(ServiceContext)
+    const [services,setServices] = useState([])
 
     useEffect(()=>{
-        fetch('data.json')
+        fetch('https://raw.githubusercontent.com/asaduzzaman599/fakedata/main/servicesFakeData.json')
         .then(res=>res.json())
         .then(data=>setServices(data))
     },[])

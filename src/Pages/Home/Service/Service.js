@@ -18,7 +18,7 @@ const Service = ({ service }) => {
                     <Card.Text>
                         Price : ${price}
                     </Card.Text>
-                    <Button variant='primary' onClick={()=>navigate(`/service/${id}`)}>Get This</Button>
+                    <button className='rounded-pill px-3 '  onClick={()=>navigate(`/service/${id}`)}>Get This</button>
                 </Card.Body>
             </Card>
         </Col>

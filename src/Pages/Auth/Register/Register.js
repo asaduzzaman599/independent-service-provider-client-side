@@ -3,8 +3,10 @@ import { Button, Form } from 'react-bootstrap';
 import './../FormStyle/Form.css'
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { toast } from 'react-toastify';
+import Loading from '../../Shared/Loading/Loading';
 const Register = () => {
     const navigate = useNavigate()
     const [user] = useAuthState(auth)
@@ -22,6 +24,18 @@ const Register = () => {
 
         if (hookError) {
             console.log(hookError.message)
+            switch(hookError.message) {
+                case 'Firebase: Error (auth/invalid-email).' :
+                    toast.error('Invalid email.')
+            
+                  break;
+                case 'Firebase: Error (auth/email-already-in-use).':
+                  
+                    toast.error('User already exist.')
+                  break;
+                default:
+                    toast.error('Something went wrong!')
+              }
         }
     }, [user, hookError])
 
@@ -90,11 +104,13 @@ const Register = () => {
     }
 
 
-
+    if(loading){
+        return <Loading></Loading>
+     }
     return (
         <div className=''>
-            <Form onSubmit={handleForm} className='form-container mx-auto shadow-lg p-4 '>
-                <h3>Registered</h3>
+            <Form onSubmit={handleForm} className='form-container mx-auto shadow-lg p-4 m-4'>
+                <h3>Register</h3>
                 <SocialLogin></SocialLogin>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
                     <Form.Control className='rounded-pill' type="text" placeholder="Username" onChange={handleUsername} required />
@@ -117,9 +133,10 @@ const Register = () => {
                 </Form.Group>
 
 
-                <Button variant="primary" className='w-100' type="submit">
+                <button  className='w-100 rounded-pill' type="submit">
                     Register
-                </Button>
+                </button>
+            <Link className='link m-2 d-block' to='/login'>Already have an account?</Link>
             </Form>
         </div>
     );
