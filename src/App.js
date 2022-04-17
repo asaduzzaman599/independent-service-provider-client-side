@@ -12,6 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import './Pages/Style/Style.css'
 import 'react-toastify/dist/ReactToastify.css';
 import About from './Pages/About/About';
+import NotFound from './Pages/Shared/NotFound/NotFound';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='/about' element={<About></About>}></Route>
+          <Route path='*' element={<NotFound></NotFound>}></Route>
         </Routes>
         <Footer></Footer>
     </div>

@@ -9,7 +9,7 @@ import './Header.css'
 const Header = () => {
   const [user] = useAuthState(auth)
   return (
-    <Navbar collapseOnSelect expand="lg" className='header' bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" className='header' sticky='top' bg="light" variant="light">
       <Container>
         <Navbar.Brand as={Link} to="/" className='text-secondary mb-2'><span className="fs-3 fw-bold" style={{ color: "#2fb694"}}> M</span>'s Capture</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
