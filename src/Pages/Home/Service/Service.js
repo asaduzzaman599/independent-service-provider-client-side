@@ -22,7 +22,7 @@ const Service = ({ service, children }) => {
                         </div>
 
                         {
-                            descriptions.map((description, index) => <p /* description={description} key={index} */>{description}
+                            descriptions.map((description, index) => <p key={index} /* description={description} key={index} */>{description}
                             </p>)
                         }
                     </div>

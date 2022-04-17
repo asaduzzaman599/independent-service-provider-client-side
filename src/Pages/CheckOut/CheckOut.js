@@ -46,20 +46,24 @@ const CheckOut = () => {
 
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control value={user.displayName} className='rounded-pill' type="text" placeholder="Your Name" /* onChange={'handleEmail'} */ required />
+                            <Form.Control value={user.displayName} className='rounded-pill' type="text" placeholder="Your Name"  required />
                         </Form.Group>
 
                         <Form.Group className="mb-3 " controlId="formBasicPassword">
-                            <Form.Control className='rounded-pill ' type="email" value={user.email} placeholder="Email" readOnly /* onChange={''} */ required />
-
+                            <Form.Control className='rounded-pill ' type="email" value={user.email} placeholder="Email" readOnly  required />
                         </Form.Group>
-                        <Form.Group className="mb-3 " controlId="formBasicPassword">
-                            <Form.Control className='rounded-pill ' type="date"  /* onChange={''} */ required />
-
-                        </Form.Group>
+                        
 
                         <Form.Group className="mb-3 " controlId="formBasicPassword">
-                            <Form.Control as="textarea" className='rounded-pill ' type="text" placeholder="Desciptions" /* onChange={''} */ required />
+                            <Form.Control className='rounded-pill ' type="text" placeholder="Phone No."   required />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3 " controlId="formBasicPassword">
+                            <Form.Control className='rounded-pill ' type="date"   required />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3 " controlId="formBasicPassword">
+                            <Form.Control as="textarea"  className='rounded-pill ' style={{resize:'none'}} type="text" placeholder="Desciptions"   />
 
                         </Form.Group>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { auth } from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 
@@ -11,6 +12,7 @@ const RequiredAuth = ({children}) => {
         return <Loading></Loading>
     }
     if(!user){
+        toast('Please login first!')
         return <Navigate to='/login' state={{from:location}} replace></Navigate>
     }
     return (
