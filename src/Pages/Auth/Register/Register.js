@@ -9,15 +9,15 @@ import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
 const Register = () => {
     const navigate = useNavigate()
-    const [user] = useAuthState(auth)
-    const [
-        createUserWithEmailAndPassword,
-        u,
-        loading,
-        hookError,
-    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+
+    //firebase hooks
+    const [user] = useAuthState(auth)
+    const [createUserWithEmailAndPassword, u, loading, hookError ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile] = useUpdateProfile(auth);
+    
+
+    //check user and error 
     useEffect(() => {
         if (user) {
             toast.success('User Created Successfully')
@@ -25,19 +25,19 @@ const Register = () => {
         }
 
         if (hookError) {
-            switch(hookError.message) {
-                case 'Firebase: Error (auth/invalid-email).' :
+            switch (hookError.message) {
+                case 'Firebase: Error (auth/invalid-email).':
                     toast.error('Invalid email.')
                     break;
-                  
+
                 case 'Firebase: Error (auth/email-already-in-use).':
-                  
+
                     toast.error('User already exist.')
-                  break;
+                    break;
                 default:
                     toast.error('Something went wrong!')
                     break;
-              }
+            }
         }
     }, [user, hookError])
 
@@ -93,52 +93,61 @@ const Register = () => {
         }
     }
 
-
+    
     const handleForm = async (event) => {
         event.preventDefault()
         const { name, password, confirmPassword, email } = userInfo
 
-        console.log(name, password, confirmPassword, email)
         if (name && (/\S+@\S+\.\S+/).test(email) && (/.{6,}/).test(password) && confirmPassword === password) {
+            
+            //create user and update user info
             await createUserWithEmailAndPassword(email, password)
-            await updateProfile({ displayName:name })
+            await updateProfile({ displayName: name })
         }
     }
 
-
-    if(loading){
+    //loading
+    if (loading) {
         return <Loading></Loading>
-     }
+    }
     return (
         <div className=''>
             <Form onSubmit={handleForm} className='form-container mx-auto shadow-lg p-4 m-4'>
                 <h3>Register</h3>
                 <SocialLogin></SocialLogin>
-                <Form.Group className="mb-3 " controlId="formBasicEmail">
+
+                {/* username input and if empty then displayed error */}
+                <Form.Group className="mb-3 " controlId="formBasicName">
                     <Form.Control className='rounded-pill' type="text" placeholder="Username" onChange={handleUsername} required />
                     {error.nameError && <p className='text-danger'>{error.nameError}</p>}
                 </Form.Group>
 
+                {/* email input and if error then displayed error */}
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control className='rounded-pill' type="email" placeholder="Enter email" onChange={handleEmail} required />
                     {error.emailError && <p className='text-danger'>{error.emailError}</p>}
                 </Form.Group>
 
+                {/* password input and if error then displayed error */}
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control className='rounded-pill' type="password" placeholder="Password" onChange={handlePassword} required />
                     {error.passwordError && <p className='text-danger'>{error.passwordError}</p>}
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                {/* confirm pass and if error then displayed error */}
+                <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
                     <Form.Control className='rounded-pill' type="password" placeholder="Confirm Password" onChange={handleConfirmPassword} required />
                     {error.confirmPasswordError && <p className='text-danger'>{error.confirmPasswordError}</p>}
                 </Form.Group>
 
 
-                <button  className='w-100 rounded-pill' type="submit">
+                {/* register button */}
+                <button className='w-100 rounded-pill' type="submit">
                     Register
                 </button>
-            <Link className='link m-2 d-block' to='/login'>Already have an account?</Link>
+
+                {/* login toggle link */}
+                <Link className='link m-2 d-block' to='/login'>Already have an account?</Link>
             </Form>
         </div>
     );

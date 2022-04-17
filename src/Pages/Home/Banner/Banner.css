@@ -1,12 +1,12 @@
-.banner img{
-    height:500px;
+.banner img {
+    height: 500px;
 }
 
-.banner{
+.banner {
     /* background: linear-gradient( 45deg, #f4f4f4,rgb(62, 62, 62)); */
     display: block;
-box-sizing: border-box;
-height: 600px;
-background:linear-gradient( 45deg, #27987c,#43a9b9,#3acbb8);
-clip-path: ellipse(300% 100% at -115% 0%);
+    box-sizing: border-box;
+    height: 600px;
+    background: linear-gradient(45deg, #27987c, #43a9b9, #3acbb8);
+    clip-path: ellipse(300% 100% at -115% 0%);
 }

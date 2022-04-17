@@ -4,7 +4,11 @@ import { Button, Card, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Service.css'
 const Service = ({ service, children }) => {
+   
+    //distructuring props
+
     const { name, descriptions, price, img, eventtype } = service;
+
     return (
         <Col>
             <Card className='service h-100 '>
@@ -22,10 +26,11 @@ const Service = ({ service, children }) => {
                         </div>
 
                         {
-                            descriptions.map((description, index) => <p key={index} /* description={description} key={index} */>{description}
+                            descriptions.map((description, index) => <p key={index} >{description}
                             </p>)
                         }
                     </div>
+                    {/* display children pass by parent compnont */}
                     {
                         children
                     }

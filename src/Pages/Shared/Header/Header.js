@@ -1,21 +1,23 @@
 
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth'
 import { Link, NavLink } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
 import './Header.css'
 const Header = () => {
+  //firebase hooks
   const [user] = useAuthState(auth)
   return (
     <Navbar collapseOnSelect expand="lg" className='header' sticky='top' bg="light" variant="light">
       <Container>
-        <Navbar.Brand as={Link} to="/" className='text-secondary mb-2'><span className="fs-3 fw-bold" style={{ color: "#2fb694"}}> M</span>'s Capture</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className='text-secondary mb-2'><span className="fs-3 fw-bold" style={{ color: "#2fb694" }}> M</span>'s Capture</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-
           <Nav className='order-lg-2 '>
+
+            {/* if user logged in then showing name and logout button otherwish showing login and register button */}
             {
               user ?
                 <>
@@ -33,7 +35,6 @@ const Header = () => {
 
           </Nav>
           <Nav className="me-auto">
-            {/* <Nav.Link className='nav-link'  href="#services">Services</Nav.Link> */}
             <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/">HOME</NavLink>
             <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/blogs">BLOGS</NavLink>
             <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/about">ABOUT</NavLink>
