@@ -4,6 +4,7 @@ import './../FormStyle/Form.css'
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../SocialLogin/SocialLogin';
 const Register = () => {
     const navigate = useNavigate()
     const [user] = useAuthState(auth)
@@ -94,6 +95,7 @@ const Register = () => {
         <div className=''>
             <Form onSubmit={handleForm} className='form-container mx-auto shadow-lg p-4 '>
                 <h3>Registered</h3>
+                <SocialLogin></SocialLogin>
                 <Form.Group className="mb-3 " controlId="formBasicEmail">
                     <Form.Control className='rounded-pill' type="text" placeholder="Username" onChange={handleUsername} required />
                     {error.nameError && <p className='text-danger'>{error.nameError}</p>}

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate()
+    const location = useLocation()
 
     const [
         signInWithEmailAndPassword, user, loading, hookError ] = useSignInWithEmailAndPassword(auth);
@@ -17,10 +19,10 @@ const Login = () => {
     const [error,setError]= useState({emailError:''})
 
 
-   
+   let from = location?.state?.from?.pathname || '/';
     useEffect(() => {
         if (user) {
-            navigate('/')
+            navigate(from,{replace:true})
         }
 
         if (hookError) {
@@ -76,7 +78,8 @@ const Login = () => {
     return (
         <div className='form-container mx-auto  p-4 shadow-lg '>
         <h3 className='my-4'>Login to Yor Account</h3>
-            <Form onSubmit={handleForm} className='  form'>
+            <SocialLogin from={from}></SocialLogin>
+            <Form onSubmit={handleForm} className=' text-right form'>
             
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">

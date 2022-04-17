@@ -1,0 +1,12 @@
+.social img{
+    width: 48px;
+}
+.or div{
+    height: 2px;
+    background-color: rgb(202, 202, 202);
+    margin-bottom: 10px;
+}
+
+.socail button{
+    /* cursor: pointer; */
+}
