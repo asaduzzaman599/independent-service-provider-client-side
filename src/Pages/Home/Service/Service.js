@@ -3,9 +3,8 @@ import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Service.css'
-const Service = ({ service }) => {
-    const navigate = useNavigate();
-    const { id, name, descriptions, price, img, eventtype } = service;
+const Service = ({ service, children }) => {
+    const {  name, descriptions, price, img, eventtype } = service;
     return (
         <Col>
             <Card className='service h-100 '>
@@ -24,7 +23,9 @@ const Service = ({ service }) => {
                         </p>)
                     }
                     </div>
-                    <button className='rounded-pill px-3 w-50 mx-auto' onClick={() => navigate(`/service/${id}`)}>Get This</button>
+                    {
+                        children
+                    }
                 </Card.Body>
             </Card>
         </Col>

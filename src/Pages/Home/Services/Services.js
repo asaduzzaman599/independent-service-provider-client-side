@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Service from '../Service/Service';
 
 const Services = () => {
     const [services,setServices] = useState([])
 
+    const navigate = useNavigate();
     useEffect(()=>{
         fetch('https://raw.githubusercontent.com/asaduzzaman599/fakedata/main/servicesFakeData.json')
         .then(res=>res.json())
@@ -18,7 +20,9 @@ const Services = () => {
 
             <Row xs={1} md={2} lg={3} className="g-4">
                 {
-                    services.map(service=><Service key={service.id} service={service}></Service>)
+                    services.map(service=><Service key={service.id} service={service}>
+                        <button className='rounded-pill px-3 w-50 mx-auto' onClick={() => navigate(`/service/${service.id}`)}>Get This</button>
+                    </Service>)
                 }
             </Row>
             

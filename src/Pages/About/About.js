@@ -1,12 +1,26 @@
 import React from 'react';
-
+import { Col, Container, Row } from 'react-bootstrap';
+import image from './../../images/formal-image/IMG_2150.jpg'
 const About = () => {
     return (
-        <div className='w-75 mx-auto m-4 p-4 shadow'>
-            <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80" className='border rounded-circle' alt="" />
-            <h3>Hello</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos a dicta culpa est fuga quas quia laudantium magni modi dolor.</p>
-        </div>
+        <Container>
+            <Row className='mt-5'>
+                <Col lg={8} className='mx-auto my-5'>
+                    <h3>About</h3>
+                    <div style={{ height: "400px" }} className='w-100  bg-light  mx-auto shadow position-relative p-5'>
+                        <div style={{ height: "200px", width: "150px" }} className='  mx-auto  position-absolute top-0 start-50 translate-middle'>
+                            <img src={image} className="w-100 h-100 rounded-circle border border-2 shadow-lg" alt="" />
+                        </div>
+                        <div className='my-5 pt-4'>
+                            <h3 className='mb-4'>Mohammad Asaduzzaman</h3>
+                            <h4 className='mb-3'>My Goals</h4>
+                            <p>Be a gentle and good person. Become a good and skill full web developer. Introducing and update myself with new techonologies. I want to saw my self as a great developer with my hard work.  </p>
+                        </div>
+
+                    </div>
+                </Col>
+            </Row>
+        </Container >
     );
 };
 

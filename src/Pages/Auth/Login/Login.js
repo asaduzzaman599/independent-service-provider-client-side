@@ -1,5 +1,6 @@
+import { async } from '@firebase/util';
 import React, { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -81,48 +82,53 @@ const Login = () => {
     }
 
 
-    const handleForgetPassword = () => {
+    const handleForgetPassword = async () => {
         const email = userInfo.email;
         if (email) {
-            sendPasswordResetEmail(email)
+            await  sendPasswordResetEmail(email)
+            toast('Reset password mail sent.')
         } else {
             setError({ emailError: "Please enter your email" })
         }
     }
 
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
 
 
     return (
-        <div className='form-container mx-auto m-4  p-4 shadow-lg '>
-            <h3 className=''>Login to Yor Account</h3>
-            <SocialLogin from={from}></SocialLogin>
-            <Form onSubmit={handleForm} className=' text-right form'>
+        <Container>
+            <Row>
+                <Col lg={6} md={10} className='bg-white m-4  p-4 mx-auto  shadow-lg '>
+                    <h3 className=''>Login to Yor Account</h3>
+                    <SocialLogin from={from}></SocialLogin>
+                    <Form onSubmit={handleForm} className=' text-right form'>
 
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control className='rounded-pill' type="email" placeholder="Enter email" onChange={handleEmail} required />
-                    {error.emailError && <p className='text-danger'>{error.emailError}</p>}
-                </Form.Group>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Control className='rounded-pill' type="email" placeholder="Enter email" onChange={handleEmail} required />
+                            {error.emailError && <p className='text-danger'>{error.emailError}</p>}
+                        </Form.Group>
 
-                <Form.Group className="mb-1 " controlId="formBasicPassword">
-                    <Form.Control className='rounded-pill ' type="password" placeholder="Password" onChange={handlePassword} required />
+                        <Form.Group className="mb-1 " controlId="formBasicPassword">
+                            <Form.Control className='rounded-pill ' type="password" placeholder="Password" onChange={handlePassword} required />
 
-                </Form.Group>
-
-
-                <button className='p-1 d-inline-block m-2 text-decoration-none link' onClick={handleForgetPassword} >Forget password?</button>
+                        </Form.Group>
 
 
+                        <button className='p-1 d-inline-block m-2 text-decoration-none link' onClick={handleForgetPassword} >Forget password?</button>
 
-                <button  className='w-100 rounded-pill' type="submit">
-                    Login
-                </button>
-            </Form>
-            <Link className='link m-2 d-block' to='/register'>Don't have account?</Link>
-        </div>
+
+
+                        <button className='w-100 rounded-pill' type="submit">
+                            Login
+                        </button>
+                    </Form>
+                    <Link className='link m-2 d-block' to='/register'>Don't have account?</Link>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

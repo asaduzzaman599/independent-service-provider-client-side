@@ -14,23 +14,29 @@ const Header = () => {
         <Navbar.Brand as={Link} to="/">Rio'S Capture</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            {/* <Nav.Link className='nav-link'  href="#services">Services</Nav.Link> */}
-            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/">HOME</NavLink>
-            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/about">ABOUT</NavLink>
-            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/blogs">BLOGS</NavLink>
-
-          </Nav>
-          <Nav>
+          
+        <Nav className='order-lg-2 '>
             {
               user ?
-                <Button variant='link' className='link' onClick={() => signOut(auth)}>Log out</Button>
+                <>
+                <p className='mt-3'>
+                  {user.displayName}
+                </p>
+                <button  className='link' onClick={() => signOut(auth)}>Log out</button>
+                </>
                 : <>
                   <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className="nav-link" to="/login">LOGIN</NavLink>
                   <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className="nav-link" to="/register">REGISTER</NavLink>
                 </>
             }
 
+
+          </Nav>
+          <Nav className="me-auto">
+            {/* <Nav.Link className='nav-link'  href="#services">Services</Nav.Link> */}
+            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/">HOME</NavLink>
+            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/blogs">BLOGS</NavLink>
+            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/about">ABOUT</NavLink>
 
           </Nav>
         </Navbar.Collapse>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import './../FormStyle/Form.css'
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { auth } from '../../../firebase.init';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -17,24 +17,26 @@ const Register = () => {
         hookError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    const [updateProfile] = useUpdateProfile(auth);
     useEffect(() => {
         if (user) {
+            toast.success('User Created Successfully')
             navigate('/')
         }
 
         if (hookError) {
-            console.log(hookError.message)
             switch(hookError.message) {
                 case 'Firebase: Error (auth/invalid-email).' :
                     toast.error('Invalid email.')
-            
-                  break;
+                    break;
+                  
                 case 'Firebase: Error (auth/email-already-in-use).':
                   
                     toast.error('User already exist.')
                   break;
                 default:
                     toast.error('Something went wrong!')
+                    break;
               }
         }
     }, [user, hookError])
@@ -92,14 +94,14 @@ const Register = () => {
     }
 
 
-    const handleForm = (event) => {
+    const handleForm = async (event) => {
         event.preventDefault()
         const { name, password, confirmPassword, email } = userInfo
 
         console.log(name, password, confirmPassword, email)
         if (name && (/\S+@\S+\.\S+/).test(email) && (/.{6,}/).test(password) && confirmPassword === password) {
-            console.log(name, password, confirmPassword, email)
-            createUserWithEmailAndPassword(email, password)
+            await createUserWithEmailAndPassword(email, password)
+            await updateProfile({ displayName:name })
         }
     }
 
