@@ -1,9 +1,9 @@
 import React from 'react';
-import './Footer.css'
+
 const Footer = () => {
     const year = (new Date()).getFullYear();
     return (
-        <footer className='p-3 footer text-light'>
+        <footer className='p-3 mt-4 bg-dark text-light'>
             <p>Copyright &copy;{year}</p>
         </footer>
     );

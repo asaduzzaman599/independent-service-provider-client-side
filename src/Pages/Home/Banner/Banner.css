@@ -8,5 +8,5 @@
 box-sizing: border-box;
 height: 500px;
 background:linear-gradient( 45deg,#4DBCCD, #2FB694,#3ECEBA);
-clip-path: ellipse(63% 100% at 40.64% 0%);
+clip-path: ellipse(300% 100% at -115% 0%);
 }

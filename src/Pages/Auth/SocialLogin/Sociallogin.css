@@ -3,11 +3,11 @@
 }
 .or div{
     height: 2px;
-    background-color: rgba(47, 182, 148, 0.311);
+    background-color: #2fb6944f;
     margin-bottom: 10px;
 }
 .or p{
-    color:rgba(47, 182, 148, 0.729);
+    color:#2fb694cb;
     font-weight: 600;
 }
 

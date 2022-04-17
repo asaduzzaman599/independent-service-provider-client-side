@@ -12,9 +12,9 @@ const Services = () => {
     },[])
     console.log(services)
     return (
-        <div id='services' className='container'>
+        <div id='services' className='container mt-5'>
 
-            <h2>Services</h2>
+            <h3 className='mb-3 mt-5 font-weight-bold text-secondary'>My Services</h3>
 
             <Row xs={1} md={2} lg={3} className="g-4">
                 {

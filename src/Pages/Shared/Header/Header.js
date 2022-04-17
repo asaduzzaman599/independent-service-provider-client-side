@@ -16,17 +16,18 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             {/* <Nav.Link className='nav-link'  href="#services">Services</Nav.Link> */}
-            <NavLink style={({ isActive }) => isActive ? { color: "#4DBCCD" } : {}} className='nav-link' to="/about">About</NavLink>
-            <NavLink style={({ isActive }) => isActive ? { color: "#4DBCCD" } : {}} className='nav-link' to="/blogs">Blogs</NavLink>
+            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/">HOME</NavLink>
+            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/about">ABOUT</NavLink>
+            <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className='nav-link' to="/blogs">BLOGS</NavLink>
 
           </Nav>
           <Nav>
             {
               user ?
-                <Button variant='link' onClick={() => signOut(auth)}>Log out</Button>
+                <Button variant='link' className='link' onClick={() => signOut(auth)}>Log out</Button>
                 : <>
-                  <NavLink style={({ isActive }) => isActive ? { color: "#4DBCCD" } : {}} className="nav-link" to="/login">Login</NavLink>
-                  <NavLink style={({ isActive }) => isActive ? { color: "#4DBCCD" } : {}} className="nav-link" to="/register">Register</NavLink>
+                  <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className="nav-link" to="/login">LOGIN</NavLink>
+                  <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className="nav-link" to="/register">REGISTER</NavLink>
                 </>
             }
 
