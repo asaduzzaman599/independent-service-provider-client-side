@@ -14,7 +14,7 @@ const Register = () => {
     //firebase hooks
     const [user] = useAuthState(auth)
     const [createUserWithEmailAndPassword, u, loading, hookError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [updateProfile] = useUpdateProfile(auth);
+    const [updateProfile,updating] = useUpdateProfile(auth);
 
 
     //check user and error 
@@ -24,6 +24,7 @@ const Register = () => {
             navigate('/')
         }
 
+        //display error 
         if (hookError) {
             switch (hookError.message) {
                 case 'Firebase: Error (auth/invalid-email).':
@@ -39,7 +40,7 @@ const Register = () => {
                     break;
             }
         }
-    }, [user, hookError])
+    }, [user, hookError,updating])
 
 
     //userinfo and error
@@ -99,7 +100,7 @@ const Register = () => {
 
             //create user and update user info
             await createUserWithEmailAndPassword(email, password)
-            await updateProfile({ displayName: name })
+            updateProfile({ displayName: name })
         }
     }
 

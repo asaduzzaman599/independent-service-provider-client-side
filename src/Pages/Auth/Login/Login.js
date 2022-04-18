@@ -38,12 +38,12 @@ const Login = () => {
         if (hookError) {
             switch (hookError.message) {
                 case 'Firebase: Error (auth/wrong-password).':
-                    toast.error('Wrong Password.')
+                    toast.error('Wrong email or password.')
 
                     break;
                 case 'Firebase: Error (auth/user-not-found).':
 
-                    toast.error('Invalid user.')
+                    toast.error('No user found.')
                     break;
                 default:
                     toast.error('Something went wrong!')
@@ -86,6 +86,7 @@ const Login = () => {
     const handleForgetPassword = async () => {
         const email = userInfo.email;
         if (email) {
+            console.log(email)
             await sendPasswordResetEmail(email)
             toast('Reset password mail sent.')
         } else {
