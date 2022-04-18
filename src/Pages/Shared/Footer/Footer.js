@@ -12,12 +12,12 @@ const Footer = () => {
            <Container>
            <Row    className='text-lg-start'>
                 <Col lg={8}>
-                    <Link to='./'  className='text-secondary text-decoration-none  mb-2 fs-3'><span className="fs-3 fw-bold" style={{ color: "#2fb694" }}> M</span>'s Capture
+                    <Link to='./'  className='text-secondary text-decoration-none  mb-4 d-block fs-3'><span className="fs-3 fw-bold" style={{ color: "#2fb694" }}> M</span>'s Capture
                     </Link>
                 </Col>
                 <Col lg={2} className="footer-info">
                     <h3>Services</h3>
-                    <p>Regualer event</p>
+                    <p>Reguler event</p>
                     <p>Wedding Premium</p>
                     <p>Wedding Duplex</p>
                 </Col>

@@ -104,7 +104,7 @@ const Login = () => {
         <Container className='form-container'>
             <Row>
                 <Col lg={6} md={10} className='bg-white my-4  p-4 mx-auto  shadow-lg '>
-                    <h3 className=''>Login to Yor Account</h3>
+                    <h3 className=''>Login to Your Account</h3>
                     <SocialLogin from={from}></SocialLogin>
                     <Form onSubmit={handleForm} className=' text-right form'>
 
