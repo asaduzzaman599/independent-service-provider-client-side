@@ -20,7 +20,7 @@ const CheckOut = () => {
 
     const handleForm = (event) => {
         event.preventDefault();
-        toast.success("thank you for the booking.F")
+        toast.success("Thank you for the booking.")
         navigate('/')
 
     }
