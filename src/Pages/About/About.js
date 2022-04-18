@@ -14,7 +14,7 @@ const About = () => {
                         <div className='my-5 pt-4'>
                             <h3 className='mb-4'>Mohammad Asaduzzaman</h3>
                             <h4 className='mb-3'>My Goals</h4>
-                            <p>Be a gentle and good person. Become a good and skill full web developer. Introducing and update myself with new techonologies. I want to saw my self as a great developer with my hard work.  </p>
+                            <p>My main goal is Become a  gentle and good person and then Become a good and skill full web developer. Introducing and update myself with new techonologies. I want to saw my self as a great developer with my hard work.  </p>
                         </div>
 
                     </div>
