@@ -94,9 +94,9 @@ const Login = () => {
     }
 
     //showing loading
-    if (loading) {
+    /* if (loading) {
         return <Loading></Loading>
-    }
+    } */
 
 
     return (
