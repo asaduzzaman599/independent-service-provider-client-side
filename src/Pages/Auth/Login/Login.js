@@ -100,9 +100,9 @@ const Login = () => {
 
 
     return (
-        <Container>
+        <Container className='form-container'>
             <Row>
-                <Col lg={6} md={10} className='bg-white m-4  p-4 mx-auto  shadow-lg '>
+                <Col lg={6} md={10} className='bg-white my-4  p-4 mx-auto  shadow-lg '>
                     <h3 className=''>Login to Yor Account</h3>
                     <SocialLogin from={from}></SocialLogin>
                     <Form onSubmit={handleForm} className=' text-right form'>
@@ -121,7 +121,7 @@ const Login = () => {
 
 
                         {/*  forget password */}
-                        <button className='p-1 d-inline-block m-2 text-decoration-none link' onClick={handleForgetPassword} >Forget password?</button>
+                        <button className='p-1 d-inline-block m-2  link' type="button" onClick={handleForgetPassword} >Forget password?</button>
 
 
 

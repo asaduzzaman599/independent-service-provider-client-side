@@ -1,16 +1,18 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-const ChooseFeature = ({feature}) => {
-    const {title,description,img} = feature
+const ChooseFeature = ({ feature }) => {
+    const { title, description, img } = feature
     return (
         <Col>
-            <div className='w-100 text-center'>
+            <div className='w-100  text-center'>
                 <img src={img} className="w-100 rounded" alt="" />
-                <h3>{title}</h3>
-                <p>{description}</p>
+                <div className='p-3'>
+                    <h3 className='mt-3 text-success'>{title}</h3>
+                    <p className='text-secondary'>{description}</p>
+                </div>
             </div>
-            
+
         </Col>
     );
 };

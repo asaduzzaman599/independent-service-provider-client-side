@@ -24,7 +24,7 @@ const Header = () => {
                   <p className='mt-3'>
                     {user.displayName}
                   </p>
-                  <button className='link ms-lg-3 d-inline-block' onClick={() => signOut(auth)}>Log out</button>
+                  <button className='link ms-lg-3 d-inline-block bg-trans' onClick={() => signOut(auth)}>Log out</button>
                 </>
                 : <>
                   <NavLink style={({ isActive }) => isActive ? { color: "#2fb694" } : {}} className="nav-link" to="/login">LOGIN</NavLink>
