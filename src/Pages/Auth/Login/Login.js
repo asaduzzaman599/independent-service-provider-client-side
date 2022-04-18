@@ -82,11 +82,10 @@ const Login = () => {
 
     }
 
-    //forget password
+    //forget password sent email
     const handleForgetPassword = async () => {
         const email = userInfo.email;
         if (email) {
-            console.log(email)
             await sendPasswordResetEmail(email)
             toast('Reset password mail sent.')
         } else {

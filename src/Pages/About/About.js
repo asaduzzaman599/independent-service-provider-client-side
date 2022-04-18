@@ -6,7 +6,7 @@ const About = () => {
         <Container>
             <Row className='mt-5'>
                 <Col lg={8} className='mx-auto my-5'>
-                    <h3>About</h3>
+                    
                     <div  className='w-100  bg-light rounded-3  mx-auto shadow position-relative p-5'>
                         <div style={{ height: "150px", width: "100px" }} className='  mx-auto  position-absolute top-0 start-50 translate-middle'>
                             <img src={image} className="w-100 h-100 rounded-circle border border-2 shadow-lg" alt="" />

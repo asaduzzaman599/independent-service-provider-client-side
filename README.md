@@ -16,7 +16,8 @@ Live Link https://m-s-capture-asaduzzaman599.web.app/.
 
 - React 
 - React Router 
+- React Hooks 
 - Firebase  
 - Firebase hook
 - React Bootstrap
-- React toastify
+- React Toastify

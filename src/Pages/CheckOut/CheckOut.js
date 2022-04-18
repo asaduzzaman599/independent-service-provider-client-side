@@ -7,6 +7,7 @@ import { auth } from '../../firebase.init';
 import Service from '../Home/Service/Service';
 
 const CheckOut = () => {
+    //gatting dynamic data from route
     const { serviceId } = useParams()
     const [service, setService] = useState(null)
     const navigate = useNavigate()
@@ -20,6 +21,8 @@ const CheckOut = () => {
 
     const handleForm = (event) => {
         event.preventDefault();
+        
+    //showing toast when click submit
         toast.success("Thank you for the booking.")
         navigate('/')
 
